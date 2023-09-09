@@ -54,13 +54,18 @@ function App() {
     return Math.round(Math.random() * charactersListLength);
   };
 
+  const copyAlert = () => {
+    navigator.clipboard.writeText(password);
+    alert("Password copied to clipboard!");
+  };
+
   return (
     <div className="container">
       <div className="generator">
         <h2 className="generator_header">Password Generator</h2>
         <div className="password_field">
           {password}
-          <button className="btn_primary_clipboard">
+          <button onClick={copyAlert} className="btn_primary_clipboard">
             <FaClipboard />
           </button>
         </div>
